@@ -1,0 +1,29 @@
+{% extends '../header/header.html' %}
+{% block title %} book list {% endblock %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">book</th>
+        <th scope="col">author</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <th scope="row">{{book.id}}</th>
+            <td><a href="{% url 'book_list' book.id %}">{{book.name}}</a></td>
+            <td><a href='{% url 'author' book.Author_id %}'>{{book.Author}}</a></td>
+            <td><a href='{% url 'removeBook' book.id %}' class="btn btn-danger"> delete</a> | <a href='{% url 'editBook' book.id %}' class="btn btn-success"> edit</a></td>
+          </tr>
+        {% empty %}
+            <h1> no books found</h1>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

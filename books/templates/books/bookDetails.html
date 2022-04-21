@@ -1,0 +1,21 @@
+{% extends '../header/header.html' %}
+{% load static%}
+{% block css %}
+    <link rel="stylesheet" href="{% static '/styles/book.css' %}">
+{% endblock %}
+{% block title %} {{book.name}} Details {% endblock %}
+
+{% block content %}
+    <div class="card" style="width: 24rem;">
+        <img src="{% static '/images/'|add:image %}" class="card-img-top" alt="...">
+       
+        <div class="card-body">
+          <h5 class="card-title" id="bname">{{book.id}} : {{book.name}}</h5>
+          <h5 class="card-title"> Pubish date = {{book.publish_date}} </h5>
+          <h5 class="card-title"> Add to site : {{book.add_to_site}} </h5>
+          <h5 class="card-title">Appropriate : {{book.appropriate}} </h5>
+          <p class="card-text">price : {{book.price}}</p>
+          <a href='{% url 'author' book.Author_id %}' class="btn btn-light"> Author : {{book.Author}}</a>
+        </div>
+      </div>
+{% endblock %}

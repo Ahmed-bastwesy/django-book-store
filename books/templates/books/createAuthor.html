@@ -1,0 +1,11 @@
+{% extends '../header/header.html' %}
+{% block title %} book list {% endblock %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ forms.as_p}}
+    <input type="submit"/>
+</form>
+{% endblock %}
